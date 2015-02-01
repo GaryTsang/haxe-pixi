@@ -52,6 +52,8 @@ class Main extends Application {
 
 		counter = Browser.document.createDivElement();
 		counter.style.position = "absolute";
+		counter.style.top = "1px";
+		counter.style.left = "1px";
 		counter.style.width = "90px";
 		counter.style.background = "#CCCCC";
 		counter.style.backgroundColor = "#105CB6";
@@ -171,8 +173,8 @@ class Main extends Application {
 		maxX = Browser.window.innerWidth;
 		maxY = Browser.window.innerHeight;
 
-		counter.style.left = maxX + "px";
-		counter.style.top = maxY + 49 + "px";
+		counter.style.top = "1px";
+		counter.style.left = "1px";
 	}
 
 	static function main() {

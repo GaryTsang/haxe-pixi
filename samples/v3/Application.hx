@@ -128,6 +128,12 @@ class Application {
 		_renderer.resize(width, height);
 		_canvas.style.width = width + "px";
 		_canvas.style.height = height + "px";
+
+		if (_stats != null) {
+			_stats.domElement.style.top = "2px";
+			_stats.domElement.style.right = "2px";
+		}
+
 		if (onResize != null) onResize();
 	}
 
