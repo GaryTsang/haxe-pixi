@@ -1,7 +1,7 @@
 -cp samples
 -cp src
--main samples.basics.Main
--js samples/_output/basics.js
+-main samples.v3.bunnymark.Main
+-js samples/v3/_output/bunnymark.js
 -dce full
 
 -D source-map-content

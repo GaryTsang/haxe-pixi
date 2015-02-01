@@ -4,7 +4,7 @@ import pixi.core.math.Matrix;
 import pixi.core.math.shapes.Rectangle;
 import pixi.core.math.Point;
 
-@:native("PIXI.core.DisplayObject")
+@:native("PIXI.DisplayObject")
 extern class DisplayObject {
 
 	/**

@@ -1,6 +1,6 @@
 package pixi.core.math.shapes;
 
-@:native("PIXI.Polygon")
+@:native("PIXI.math.Polygon")
 extern class Polygon {
 
 	/**

@@ -1,4 +1,4 @@
-package samples.basics;
+package samples.v3.basics;
 
 class Main extends Application {
 

@@ -6,9 +6,8 @@
  * @copyright 2015
  */
 
-package samples;
+package samples.v3;
 
-import pixi.core.display.DisplayObject;
 import pixi.plugins.stats.Stats;
 import pixi.core.renderers.Detector;
 import pixi.core.display.Container;
@@ -50,14 +49,6 @@ class Application {
 	public var resize(null, default):Bool;
 
 	/*
-	 * Enable/disable stats for the application
-	 * Note that stats.js is not part of pixi so don't forget to include it you html page
-	 * Can be found in libs folder - <script type="text/javascript" src="libs/stats.min.js"></script>
-	 * @default false
-	 */
-	public var stats(null, set):Bool;
-
-	/*
 	 * Sets the background color of the stage
 	 * @default 0xFFFFFF
 	 */
@@ -69,7 +60,7 @@ class Application {
 	public var onUpdate:Float -> Void;
 
 	/*
-	 * Windo resize listener function
+	 * Window resize listener function
 	 */
 	public var onResize:Void -> Void;
 
@@ -77,12 +68,11 @@ class Application {
 	 * Pixi stage
 	 * Read-only
 	 */
-	var _stage(default, null):DisplayObject;
+	var _stage(default, null):Container;
 
 	var _canvas:CanvasElement;
 	var _renderer:Dynamic;
 	var _stats:Stats;
-
 	var _lastTime:Date;
 	var _currentTime:Date;
 	var _elapsedTime:Float;
@@ -96,36 +86,40 @@ class Application {
 	function _setDefaultValues() {
 		pixelRatio = 1;
 		skipFrame = false;
-		stats = false;
 		backgroundColor = 0xFFFFFF;
 		width = Browser.window.innerWidth;
 		height = Browser.window.innerHeight;
 		_skipFrame = false;
 	}
 
-	public function start() {
+	/*
+	 * Enable/disable stats for the application
+	 * Note that stats.js is not part of pixi so don't forget to include it you html page
+	 * Can be found in libs folder - <script type="text/javascript" src="libs/stats.min.js"></script>
+	 * @default false
+	 */
+	public function start(?stats:Bool = false) {
 		_canvas = Browser.document.createCanvasElement();
 		_canvas.style.width = width + "px";
 		_canvas.style.height = height + "px";
 		_canvas.style.position = "absolute";
 		Browser.document.body.appendChild(_canvas);
 
-		//trace(untyped __js__("PIXI"));
-		trace(untyped __js__("PIXI.Stage"));
-
-		/*_stage = new DisplayObject();
+		_stage = new Container();
 
 		var renderingOptions:RenderingOptions = {};
 		renderingOptions.view = _canvas;
+		renderingOptions.backgroundColor = backgroundColor;
 		renderingOptions.resolution = pixelRatio;
 
 		_renderer = Detector.autoDetectRenderer(width, height, renderingOptions);
 
-		trace("DDD", _renderer);
 		Browser.document.body.appendChild(_renderer.view);
 		Browser.window.onresize = _onWindowResize;
 		Browser.window.requestAnimationFrame(cast _onRequestAnimationFrame);
-		_lastTime = Date.now();*/
+		_lastTime = Date.now();
+
+		if (stats) addStats();
 	}
 
 	function _onWindowResize(event:Event) {
@@ -155,17 +149,14 @@ class Application {
 		_lastTime = _currentTime;
 	}
 
-	function set_stats(val:Bool):Bool {
-		if (val) {
-			var _container = Browser.document.createElement("div");
-			Browser.document.body.appendChild(_container);
-			_stats = new Stats();
-			_stats.domElement.style.position = "absolute";
-			_stats.domElement.style.top = "2px";
-			_stats.domElement.style.right = "2px";
-			_container.appendChild(_stats.domElement);
-			_stats.begin();
-		}
-		return stats = val;
+	function addStats() {
+		var _container = Browser.document.createElement("div");
+		Browser.document.body.appendChild(_container);
+		_stats = new Stats();
+		_stats.domElement.style.position = "absolute";
+		_stats.domElement.style.top = "2px";
+		_stats.domElement.style.right = "2px";
+		_container.appendChild(_stats.domElement);
+		_stats.begin();
 	}
 }

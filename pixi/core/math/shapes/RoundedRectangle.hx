@@ -1,6 +1,6 @@
 package pixi.core.math.shapes;
 
-@:native("PIXI.RoundedRectangle")
+@:native("PIXI.math.RoundedRectangle")
 extern class RoundedRectangle {
 
 	/**

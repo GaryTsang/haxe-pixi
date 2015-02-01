@@ -54,6 +54,7 @@ extern class Detector {
 }
 
 typedef RenderingOptions = {
+	@:optional var backgroundColor:Int;
 	@:optional var view:CanvasElement;
 	@:optional var transparent:Bool;
 	@:optional var autoResize:Bool;

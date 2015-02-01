@@ -1,6 +1,6 @@
 package pixi.core.math.shapes;
 
-@:native("PIXI.Rectangle")
+@:native("PIXI.math.Rectangle")
 extern class Rectangle {
 
 	/**

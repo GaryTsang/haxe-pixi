@@ -1,6 +1,8 @@
 package pixi.core.display;
 
-@:native("PIXI.core.Container")
+import pixi.core.textures.Texture;
+
+@:native("PIXI.Container")
 extern class Container extends DisplayObject {
 
 	/**
@@ -119,5 +121,5 @@ extern class Container extends DisplayObject {
 	 * @param renderer {CanvasRenderer|WebGLRenderer} The renderer used to generate the texture.
 	 * @return {Texture} a texture of the graphics object
 	 */
-	function generateTexture(resolution:Float, scaleMode:Float, renderer:Dynamic):Dynamic;
+	function generateTexture(resolution:Float, scaleMode:Float, renderer:Dynamic):Texture;
 }

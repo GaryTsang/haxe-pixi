@@ -1,6 +1,6 @@
 package pixi.core.math.shapes;
 
-@:native("PIXI.Ellipse")
+@:native("PIXI.math.Ellipse")
 extern class Ellipse {
 
 	/**

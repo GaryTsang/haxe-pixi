@@ -1,4 +1,28 @@
 <haxe>
+	<class path="Array" params="T" file="/usr/lib/haxe/std/js/_std/Array.hx" extern="1">
+		<length public="1" set="null">
+			<x path="Int"/>
+			<haxe_doc>The length of `this` Array.</haxe_doc>
+		</length>
+		<push public="1" set="method">
+			<f a="x">
+				<c path="Array.T"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Adds the element `x` at the end of `this` Array and returns the new
+		length of `this` Array.
+
+		This operation modifies `this` Array in place.
+
+		`this.length` increases by 1.</haxe_doc>
+		</push>
+		<haxe_doc>An Array is a storage for values. You can access it using indexes or
+	with its API.</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
 	<abstract path="Class" params="T" file="/usr/lib/haxe/std/Class.hx">
 		<this><x path="Class"><c path="Class.T"/></x></this>
 		<haxe_doc>An abstract type that represents a Class.
@@ -128,6 +152,89 @@
 	See `Type` for the Haxe Reflection API.</haxe_doc>
 		<meta><m n=":coreType"/></meta>
 	</abstract>
+	<class path="Math" params="" file="/usr/lib/haxe/std/Math.hx" extern="1">
+		<NEGATIVE_INFINITY public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>A special Float constant which denotes negative infinity.
+
+		For example, this is the result of -1.0 / 0.0.
+
+		Operations with NEGATIVE_INFINITY as an operand may result in
+		NEGATIVE_INFINITY, POSITIVE_INFINITY or NaN. 
+
+		If this constant is converted to an Int, e.g. through Std.int(), the
+		result is unspecified.</haxe_doc>
+		</NEGATIVE_INFINITY>
+		<POSITIVE_INFINITY public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>A special Float constant which denotes negative infinity.
+
+		For example, this is the result of 1.0 / 0.0.
+
+		Operations with POSITIVE_INFINITY as an operand may result in
+		NEGATIVE_INFINITY, POSITIVE_INFINITY or NaN. 
+
+		If this constant is converted to an Int, e.g. through Std.int(), the
+		result is unspecified.</haxe_doc>
+		</POSITIVE_INFINITY>
+		<NaN public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>A special Float constant which denotes an invalid number.
+
+		NaN stands for "Not a Number". It occurs when a mathematically incorrect
+		operation is executed, such as taking the square root of a negative
+		number: Math.sqrt(-1).
+
+		All further operations with NaN as an operand will result in NaN.
+
+		If this constant is converted to an Int, e.g. through Std.int(), the
+		result is unspecified.
+
+		In order to test if a value is NaN, you should use Math.isNaN() function.
+
+		@php In PHP versions prior to 5.3.1 VC 9 there may be unexpected
+		results when performing arithmetic operations with NaN on Windows, 
+		see [https://bugs.php.net/bug.php?id=42143]</haxe_doc>
+		</NaN>
+		<floor public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the largest integer value that is not greater than `v`.
+
+		If `v` is outside of the signed Int32 range, or is NaN, NEGATIVE_INFINITY 
+		or POSITIVE_INFINITY, the result is unspecified.</haxe_doc>
+		</floor>
+		<random public="1" set="method" static="1">
+			<f a=""><x path="Float"/></f>
+			<haxe_doc>Returns a pseudo-random number which is greater than or equal to 0.0, 
+		and less than 1.0.</haxe_doc>
+		</random>
+		<isFinite public="1" set="method" static="1">
+			<f a="f">
+				<x path="Float"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Tells if `f` is a finite number.
+
+		If `f` is POSITIVE_INFINITY, NEGATIVE_INFINITY or NaN, the result 
+		is false, otherwise the result is true.</haxe_doc>
+		</isFinite>
+		<isNaN public="1" set="method" static="1">
+			<f a="f">
+				<x path="Float"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Tells if `f` is not a valid number.
+
+		If `f` is NaN, the result is true, otherwise the result is false. 
+		In particular, both POSITIVE_INFINITY and NEGATIVE_INFINITY are
+		not considered NaN.</haxe_doc>
+		</isNaN>
+		<haxe_doc>This class defines mathematical functions and constants.</haxe_doc>
+		<meta><m n=":keep"/></meta>
+	</class>
 	<class path="String" params="" file="/usr/lib/haxe/std/js/_std/String.hx" extern="1">
 		<fromCharCode public="1" set="method" static="1">
 			<f a="code">
@@ -294,7 +401,16 @@
 	String, it is passed through Std.string() first.</haxe_doc>
 		<meta><m n=":coreApi"/></meta>
 	</class>
-	<class path="Std" params="" file="/usr/lib/haxe/std/js/_std/Std.hx" extern="1">
+	<class path="Std" params="" file="/usr/lib/haxe/std/js/_std/Std.hx">
+		<random public="1" set="method" line="57" static="1">
+			<f a="x">
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc><![CDATA[Return a random integer between 0 included and `x` excluded.
+
+		If `x <= 1`, the result is always 0.]]></haxe_doc>
+		</random>
 		<haxe_doc>The Std class provides standard methods for manipulating basic types.</haxe_doc>
 		<meta>
 			<m n=":keep"/>
@@ -13461,7 +13577,7 @@ Documentation for this class was provided by <a href="https://developer.mozilla.
 	 * @class
 	 * @namespace PIXI</haxe_doc>
 		</new>
-		<meta><m n=":native"><e>"PIXI.core.DisplayObject"</e></m></meta>
+		<meta><m n=":native"><e>"PIXI.DisplayObject"</e></m></meta>
 	</class>
 	<class path="pixi.core.display.Container" params="" file="pixi/core/display/Container.hx" extern="1">
 		<extends path="pixi.core.display.DisplayObject"/>
@@ -13586,7 +13702,7 @@ Documentation for this class was provided by <a href="https://developer.mozilla.
 				<x path="Float"/>
 				<x path="Float"/>
 				<d/>
-				<d/>
+				<c path="pixi.core.textures.Texture"/>
 			</f>
 			<haxe_doc>* Useful function that returns a texture of the displayObject object that can then be used to create sprites
 	 * This can be quite useful if your displayObject is static / complicated and needs to be reused multiple times.
@@ -13605,7 +13721,7 @@ Documentation for this class was provided by <a href="https://developer.mozilla.
 	 * @extends DisplayObject
 	 * @namespace PIXI</haxe_doc>
 		</new>
-		<meta><m n=":native"><e>"PIXI.core.Container"</e></m></meta>
+		<meta><m n=":native"><e>"PIXI.Container"</e></m></meta>
 	</class>
 	<class path="pixi.core.math.Matrix" params="" file="pixi/core/math/Matrix.hx" extern="1">
 		<a public="1">
@@ -13878,7 +13994,7 @@ Documentation for this class was provided by <a href="https://developer.mozilla.
 	 * @param y {Float} The Y coordinate of the center of this circle
 	 * @param radius {Float} The radius of the circle</haxe_doc>
 		</new>
-		<meta><m n=":native"><e>"PIXI.Circle"</e></m></meta>
+		<meta><m n=":native"><e>"PIXI.math.Circle"</e></m></meta>
 	</class>
 	<class path="pixi.core.math.shapes.Ellipse" params="" file="pixi/core/math/shapes/Ellipse.hx" extern="1">
 		<clone public="1" set="method">
@@ -13949,7 +14065,7 @@ Documentation for this class was provided by <a href="https://developer.mozilla.
 	 * @param width {Float} The half width of this ellipse
 	 * @param height {Float} The half height of this ellipse</haxe_doc>
 		</new>
-		<meta><m n=":native"><e>"PIXI.Ellipse"</e></m></meta>
+		<meta><m n=":native"><e>"PIXI.math.Ellipse"</e></m></meta>
 	</class>
 	<class path="pixi.core.math.shapes.Polygon" params="" file="pixi/core/math/shapes/Polygon.hx" extern="1">
 		<clone public="1" set="method">
@@ -14005,7 +14121,7 @@ Documentation for this class was provided by <a href="https://developer.mozilla.
 	 *      Numbers.]]></haxe_doc>
 </new></overloads>
 		</new>
-		<meta><m n=":native"><e>"PIXI.Polygon"</e></m></meta>
+		<meta><m n=":native"><e>"PIXI.math.Polygon"</e></m></meta>
 	</class>
 	<class path="pixi.core.math.shapes.Rectangle" params="" file="pixi/core/math/shapes/Rectangle.hx" extern="1">
 		<clone public="1" set="method">
@@ -14069,7 +14185,7 @@ Documentation for this class was provided by <a href="https://developer.mozilla.
 	 * @param width {Float} The overall width of this rectangle
 	 * @param height {Float} The overall height of this rectangle</haxe_doc>
 		</new>
-		<meta><m n=":native"><e>"PIXI.Rectangle"</e></m></meta>
+		<meta><m n=":native"><e>"PIXI.math.Rectangle"</e></m></meta>
 	</class>
 	<class path="pixi.core.math.shapes.RoundedRectangle" params="" file="pixi/core/math/shapes/RoundedRectangle.hx" extern="1">
 		<clone public="1" set="method">
@@ -14141,7 +14257,39 @@ Documentation for this class was provided by <a href="https://developer.mozilla.
 	 * @param height {Number} The overall height of this rounded rectangle
 	 * @param radius {Number} The overall radius of this corners of this rounded rectangle</haxe_doc>
 		</new>
-		<meta><m n=":native"><e>"PIXI.RoundedRectangle"</e></m></meta>
+		<meta><m n=":native"><e>"PIXI.math.RoundedRectangle"</e></m></meta>
+	</class>
+	<class path="pixi.core.particles.ParticleContainer" params="" file="pixi/core/particles/ParticleContainer.hx" extern="1">
+		<extends path="pixi.core.display.Container"/>
+		<new public="1" set="method">
+			<f a="size:properties">
+				<x path="Int"/>
+				<c path="Array"><x path="Bool"/></c>
+				<x path="Void"/>
+			</f>
+			<haxe_doc><![CDATA[* The ParticleContainer class is a really fast version of the Container built solely for speed,
+	 * so use when you need a lot of sprites or particles. The tradeoff of the ParticleContainer is that advanced
+	 * functionality will not work. ParticleContainer implements only the basic object transform (position, scale, rotation).
+	 * Any other functionality like tinting, masking, etc will not work on sprites in this batch.
+	 *
+	 * It's extremely easy to use :
+	 *
+	 * ```js
+	 * var container = new ParticleContainer();
+	 *
+	 * for (var i = 0; i < 100; ++i)
+	 * {
+	 *     var sprite = new PIXI.Sprite.fromImage("myImage.png");
+	 *     container.addChild(sprite);
+	 * }
+	 * ```
+	 *
+	 * And here you have a hundred sprites that will be renderer at the speed of light.
+	 *
+	 * @class
+	 * @namespace PIXI]]></haxe_doc>
+		</new>
+		<meta><m n=":native"><e>"PIXI.ParticleContainer"</e></m></meta>
 	</class>
 	<class path="pixi.core.renderers.Detector" params="" file="pixi/core/renderers/Detector.hx" extern="1">
 		<autoDetectRenderer public="1" set="method" static="1">
@@ -14233,6 +14381,10 @@ Documentation for this class was provided by <a href="https://developer.mozilla.
 		<x path="Bool"/>
 		<meta><m n=":optional"/></meta>
 	</clearBeforeRender>
+	<backgroundColor>
+		<x path="Int"/>
+		<meta><m n=":optional"/></meta>
+	</backgroundColor>
 	<autoResize>
 		<x path="Bool"/>
 		<meta><m n=":optional"/></meta>
@@ -14365,6 +14517,596 @@ Documentation for this class was provided by <a href="https://developer.mozilla.
 		</new>
 		<meta><m n=":native"><e>"PIXI.SystemRenderer"</e></m></meta>
 	</class>
+	<class path="pixi.core.sprites.Sprite" params="" file="pixi/core/sprites/Sprite.hx" extern="1">
+		<extends path="pixi.core.display.Container"/>
+		<fromFrame public="1" set="method" static="1">
+			<f a="frameId">
+				<c path="String"/>
+				<c path="pixi.core.sprites.Sprite"/>
+			</f>
+			<haxe_doc>* Helper function that creates a sprite that will contain a texture from the TextureCache based on the frameId
+	 * The frame ids are created when a Texture packer file has been loaded
+	 *
+	 * @static
+	 * @param frameId {String} The frame Id of the texture in the cache
+	 * @return {Sprite} A new Sprite using a texture from the texture cache matching the frameId</haxe_doc>
+		</fromFrame>
+		<fromImage public="1" set="method" static="1">
+			<f a="imageId:?crossorigin:?scaleMode">
+				<c path="String"/>
+				<x path="Bool"/>
+				<x path="Int"/>
+				<c path="pixi.core.sprites.Sprite"/>
+			</f>
+			<haxe_doc>* Helper function that creates a sprite that will contain a texture based on an image url
+	 * If the image is not in the texture cache it will be loaded
+	 *
+	 * @static
+	 * @param imageId {String} The image url of the texture
+	 * @return {Sprite} A new Sprite using a texture from the texture cache matching the image id</haxe_doc>
+		</fromImage>
+		<anchor public="1">
+			<c path="pixi.core.math.Point"/>
+			<haxe_doc>* The anchor sets the origin point of the texture.
+     * The default is 0,0 this means the texture's origin is the top left
+     * Setting than anchor to 0.5,0.5 means the textures origin is centered
+     * Setting the anchor to 1,1 would mean the textures origin points will be the bottom right corner
+     *
+     * @member {Point}</haxe_doc>
+		</anchor>
+		<texture public="1">
+			<c path="pixi.core.textures.Texture"/>
+			<haxe_doc>* The height of the sprite, setting this will actually modify the scale to achieve the value set
+     *
+     * @member
+     * @memberof Sprite#</haxe_doc>
+		</texture>
+		<tint public="1">
+			<x path="Int"/>
+			<haxe_doc>* The tint applied to the sprite. This is a hex value. A value of 0xFFFFFF will remove any tint effect.
+     *
+     * @member {Int}
+     * @default 0xFFFFFF</haxe_doc>
+		</tint>
+		<blendMode public="1">
+			<x path="Int"/>
+			<haxe_doc>* The blend mode to be applied to the sprite. Set to CONST.blendModes.NORMAL to remove any blend mode.
+     *
+     * @member {Int}
+     * @default CONST.blendModes.NORMAL;</haxe_doc>
+		</blendMode>
+		<shader public="1">
+			<d/>
+			<haxe_doc>* The shader that will be used to render the sprite. Set to null to remove a current shader.
+     *
+     * @member {AbstractFilter}</haxe_doc>
+		</shader>
+		<destroy public="1" set="method">
+			<f a="?destroyTexture:?destroyBaseTexture">
+				<x path="Bool"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* Destroys the texture of the sprite
+	 *
+	 * @param destroyTexture {Bool}
+	 * @param destroyBaseTexture {Bool}</haxe_doc>
+		</destroy>
+		<renderCanvas public="1" set="method">
+			<f a="renderer">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* Renders the object using the Canvas renderer
+	*
+	* @param renderer {CanvasRenderer} The renderer</haxe_doc>
+		</renderCanvas>
+		<new public="1" set="method">
+			<f a="texture">
+				<c path="pixi.core.textures.Texture"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* The Sprite object is the base for all textured objects that are rendered to the screen
+	 *
+	 * A sprite can be created directly from an image like this:
+	 *
+	 * ```js
+	 * var sprite = new Sprite.fromImage('assets/image.png');
+	 * ```
+	 *
+	 * @class Sprite
+	 * @extends Container
+	 * @namespace PIXI
+	 * @param texture {Texture} The texture for this sprite</haxe_doc>
+		</new>
+		<meta><m n=":native"><e>"PIXI.Sprite"</e></m></meta>
+	</class>
+	<class path="pixi.core.textures.BaseTexture" params="" file="pixi/core/textures/BaseTexture.hx" extern="1">
+		<fromImage public="1" set="method" static="1">
+			<f a="imageUrl:?crossorigin:?scaleMode">
+				<c path="String"/>
+				<x path="Bool"/>
+				<x path="Int"/>
+				<c path="pixi.core.textures.BaseTexture"/>
+			</f>
+			<haxe_doc>* Helper function that creates a base texture from the given image url.
+	 * If the image is not in the base texture cache it will be created and loaded.
+	 *
+	 * @static
+	 * @param imageUrl {String} The image url of the texture
+	 * @param [crossorigin=(auto)] {Bool} Should use anonymouse CORS? Defaults to true if the URL is not a data-URI.
+	 * @param [scaleMode=scaleModes.DEFAULT] {Int} See {@link scaleModes} for possible values
+	 * @return BaseTexture</haxe_doc>
+		</fromImage>
+		<fromCanvas public="1" set="method" static="1">
+			<f a="canvas:?scaleMode">
+				<c path="js.html.CanvasElement"/>
+				<x path="Int"/>
+				<c path="pixi.core.textures.BaseTexture"/>
+			</f>
+			<haxe_doc>* Helper function that creates a base texture from the given canvas element.
+	 *
+	 * @static
+	 * @param canvas {Canvas} The canvas element source of the texture
+	 * @param scaleMode {Int} See {{#crossLink "PIXI/scaleModes:property"}}scaleModes{{/crossLink}} for possible values
+	 * @return BaseTexture</haxe_doc>
+		</fromCanvas>
+		<resolution public="1">
+			<x path="Float"/>
+			<haxe_doc>* The Resolution of the texture.
+     *
+     * @member {Float}</haxe_doc>
+		</resolution>
+		<width public="1">
+			<x path="Float"/>
+			<haxe_doc>* The width of the base texture set when the image has loaded
+     *
+     * @member {Float}
+     * @readOnly</haxe_doc>
+		</width>
+		<height public="1">
+			<x path="Float"/>
+			<haxe_doc>* The height of the base texture set when the image has loaded
+     *
+     * @member {Float}
+     * @readOnly</haxe_doc>
+		</height>
+		<scaleMode public="1">
+			<x path="Float"/>
+			<haxe_doc>* The scale mode to apply when scaling this texture
+     *
+     * @member {Float}
+     * @default scaleModes.LINEAR</haxe_doc>
+		</scaleMode>
+		<hasLoaded public="1">
+			<x path="Bool"/>
+			<haxe_doc>* Set to true once the base texture has successfully loaded.
+     *
+     * This is never true if the underlying source fails to load or has no texture data.
+     *
+     * @member {Bool}
+     * @readOnly</haxe_doc>
+		</hasLoaded>
+		<isLoading public="1">
+			<x path="Bool"/>
+			<haxe_doc>* Set to true if the source is currently loading.
+     *
+     * If an Image source is loading the 'loaded' or 'error' event will be
+     * dispatched when the operation ends. An underyling source that is
+     * immediately-available bypasses loading entirely.
+     *
+     * @member {Bool}
+     * @readonly</haxe_doc>
+		</isLoading>
+		<source public="1">
+			<d/>
+			<haxe_doc>* The image source that is used to create the texture.
+     *
+     * TODO: Make this a setter that calls loadSource();
+     *
+     * @member {Image|Canvas}
+     * @readonly</haxe_doc>
+		</source>
+		<premultipliedAlpha public="1">
+			<x path="Bool"/>
+			<haxe_doc>* Controls if RGB channels should be pre-multiplied by Alpha  (WebGL only)
+     *
+     * @member {Bool}
+     * @default true</haxe_doc>
+		</premultipliedAlpha>
+		<imageUrl public="1">
+			<c path="String"/>
+			<haxe_doc>* @member {String}</haxe_doc>
+		</imageUrl>
+		<mipmap public="1">
+			<x path="Bool"/>
+			<haxe_doc>*
+     * Set this to true if a mipmap of this texture needs to be generated. This value needs to be set before the texture is used
+     * Also the texture must be a power of two size to work
+     *
+     * @member {Bool}</haxe_doc>
+		</mipmap>
+		<update public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>* Updates the texture on all the webgl renderers.
+	 *
+	 * @fires update</haxe_doc>
+		</update>
+		<destroy public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>* Destroys this base texture
+	 *</haxe_doc>
+		</destroy>
+		<dispose public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>* Frees the texture from WebGL memory without destroying this texture object.
+	 * This means you can still use the texture later which will upload it to GPU
+	 * memory again.
+	 *</haxe_doc>
+		</dispose>
+		<updateSourceImage public="1" set="method">
+			<f a="newSrc">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* Changes the source image of the texture.
+	 * The original source must be an Image element.
+	 *
+	 * @param newSrc {String} the path of the image</haxe_doc>
+		</updateSourceImage>
+		<new public="1" set="method">
+			<f a="source:scaleMode">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* A texture stores the information that represents an image. All textures have a base texture.
+	 *
+	 * @class
+	 * @mixes eventTarget
+	 * @namespace PIXI
+	 * @param source {Image|Canvas} the source object of the texture.
+	 * @param [scaleMode=scaleModes.DEFAULT] {number} See {@link scaleModes} for possible values</haxe_doc>
+		</new>
+		<meta><m n=":native"><e>"PIXI.BaseTexture"</e></m></meta>
+	</class>
+	<class path="pixi.core.textures.Texture" params="" file="pixi/core/textures/Texture.hx" extern="1">
+		<fromImage public="1" set="method" static="1">
+			<f a="imageId:?crossorigin:?scaleMode">
+				<c path="String"/>
+				<x path="Bool"/>
+				<x path="Int"/>
+				<c path="pixi.core.textures.Texture"/>
+			</f>
+			<haxe_doc>* Helper function that creates a Texture object from the given image url.
+	 * If the image is not in the texture cache it will be  created and loaded.
+	 *
+	 * @static
+	 * @param imageUrl {String} The image url of the texture
+	 * @param crossorigin {Bool} Whether requests should be treated as crossorigin
+	 * @param scaleMode {Int} See {{#crossLink "PIXI/scaleModes:property"}}scaleModes{{/crossLink}} for possible values
+	 * @return Texture</haxe_doc>
+		</fromImage>
+		<fromCanvas public="1" set="method" static="1">
+			<f a="canvas:?scaleMode">
+				<d/>
+				<x path="Int"/>
+				<c path="pixi.core.textures.Texture"/>
+			</f>
+			<haxe_doc>* Helper function that creates a new Texture based on the given canvas element.
+	 *
+	 * @static
+	 * @param canvas {Canvas} The canvas element source of the texture
+	 * @param scaleMode {Int} See {{#crossLink "PIXI/scaleModes:property"}}scaleModes{{/crossLink}} for possible values
+	 * @return {Texture}</haxe_doc>
+		</fromCanvas>
+		<fromVideo public="1" set="method" static="1">
+			<f a="video:scaleMode">
+				<c path="js.html.VideoElement"/>
+				<x path="Int"/>
+				<c path="pixi.core.textures.Texture"/>
+			</f>
+			<haxe_doc>* Helper function that creates a new Texture based on the given video element.
+	 *
+	 * @static
+	 * @param video {VideoElement}
+	 * @param scaleMode {number} See {{#crossLink "PIXI/scaleModes:property"}}scaleModes{{/crossLink}} for possible values
+	 * @return {Texture} A Texture</haxe_doc>
+		</fromVideo>
+		<addTextureToCache public="1" set="method" static="1">
+			<f a="texture:id">
+				<c path="pixi.core.textures.Texture"/>
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* Adds a texture to the global utils.TextureCache. This cache is shared across the whole PIXI object.
+	 *
+	 * @static
+	 * @param texture {Texture} The Texture to add to the cache.
+	 * @param id {String} The id that the texture will be stored against.</haxe_doc>
+		</addTextureToCache>
+		<removeTextureFromCache public="1" set="method" static="1">
+			<f a="id">
+				<c path="String"/>
+				<c path="pixi.core.textures.Texture"/>
+			</f>
+			<haxe_doc>* Remove a texture from the global utils.TextureCache.
+	 *
+	 * @static
+	 * @param id {String} The id of the texture to be removed
+	 * @return {Texture} The texture that was removed</haxe_doc>
+		</removeTextureFromCache>
+		<noFrame public="1">
+			<x path="Bool"/>
+			<haxe_doc>* Does this Texture have any frame data assigned to it?
+     *
+     * @member {Bool}</haxe_doc>
+		</noFrame>
+		<baseTexture public="1">
+			<c path="pixi.core.textures.BaseTexture"/>
+			<haxe_doc>* The base texture that this texture uses.
+     *
+     * @member {BaseTexture}</haxe_doc>
+		</baseTexture>
+		<trim public="1">
+			<c path="pixi.core.math.shapes.Rectangle"/>
+			<haxe_doc>* The texture trim data.
+     *
+     * @member {Rectangle}</haxe_doc>
+		</trim>
+		<valid public="1">
+			<x path="Bool"/>
+			<haxe_doc>* This will let the renderer know if the texture is valid. If it's not then it cannot be rendered.
+     *
+     * @member {Bool}</haxe_doc>
+		</valid>
+		<requiresUpdate public="1">
+			<x path="Bool"/>
+			<haxe_doc>* This will let a renderer know that a texture has been updated (used mainly for webGL uv updates)
+     *
+     * @member {Bool}</haxe_doc>
+		</requiresUpdate>
+		<width public="1">
+			<x path="Float"/>
+			<haxe_doc>* The width of the Texture in pixels.
+     *
+     * @member {Float}</haxe_doc>
+		</width>
+		<height public="1">
+			<x path="Float"/>
+			<haxe_doc>* The height of the Texture in pixels.
+     *
+     * @member {Float}</haxe_doc>
+		</height>
+		<crop public="1">
+			<c path="pixi.core.math.shapes.Rectangle"/>
+			<haxe_doc>* This is the area of the BaseTexture image to actually copy to the Canvas / WebGL when rendering,
+     * irrespective of the actual frame size or placement (which can be influenced by trimmed texture atlases)
+     *
+     * @member {Rectangle}</haxe_doc>
+		</crop>
+		<spritePivot public="1">
+			<c path="pixi.core.math.Point"/>
+			<haxe_doc>* The pivot point to used for a sprite this texture belongs to.
+     *
+     * @member {Point}</haxe_doc>
+		</spritePivot>
+		<rotation public="1">
+			<x path="Float"/>
+			<haxe_doc>* The rotation value of the texture, copied to a sprite when assigned to it.
+     *
+     * @member {Float}</haxe_doc>
+		</rotation>
+		<frame public="1">
+			<c path="pixi.core.math.shapes.Rectangle"/>
+			<haxe_doc>* The frame specifies the region of the base texture that this texture uses
+     *
+     * @member {Rectangle}</haxe_doc>
+		</frame>
+		<destroy public="1" set="method">
+			<f a="?destroyBase">
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* Destroys this texture
+	 *
+	 * @param destroyBase {Bool} Whether to destroy the base texture as well</haxe_doc>
+		</destroy>
+		<update public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>* Updates this texture on the gpu.
+	 *</haxe_doc>
+		</update>
+		<new public="1" set="method">
+			<f a="baseTexture:?frame:?crop:?trim">
+				<c path="pixi.core.textures.BaseTexture"/>
+				<c path="pixi.core.math.shapes.Rectangle"/>
+				<c path="pixi.core.math.shapes.Rectangle"/>
+				<c path="pixi.core.math.shapes.Rectangle"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* A texture stores the information that represents an image or part of an image. It cannot be added
+	 * to the display list directly. Instead use it as the texture for a Sprite. If no frame is provided then the whole image is used.
+	 *
+	 * @class
+	 * @mixes eventTarget
+	 * @namespace PIXI
+	 * @param baseTexture {BaseTexture} The base texture source to create the texture from
+	 * @param [frame] {Rectangle} The rectangle frame of the texture to show
+	 * @param [crop] {Rectangle} The area of original texture
+	 * @param [trim] {Rectangle} Trimmed texture rectangle</haxe_doc>
+		</new>
+		<meta><m n=":native"><e>"PIXI.Texture"</e></m></meta>
+	</class>
+	<class path="pixi.core.utils.EventData" params="" file="pixi/core/utils/EventData.hx" extern="1">
+		<target public="1">
+			<d/>
+			<haxe_doc>* The original target the event triggered on.
+     *
+     * @member {Dynamic}
+     * @readonly</haxe_doc>
+		</target>
+		<type public="1">
+			<c path="String"/>
+			<haxe_doc>* The string name of the event that this represents.
+     *
+     * @member {String}
+     * @readonly</haxe_doc>
+		</type>
+		<data public="1">
+			<d/>
+			<haxe_doc>* The data that was passed in with this event.
+     *
+     * @member {Dynamic}
+     * @readonly</haxe_doc>
+		</data>
+		<timeStamp public="1">
+			<x path="Int"/>
+			<haxe_doc>* The timestamp when the event occurred.
+     *
+     * @member {Int}
+     * @readonly</haxe_doc>
+		</timeStamp>
+		<stopPropagation public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>* Stops the propagation of events up the scene graph (prevents bubbling).
+	 *</haxe_doc>
+		</stopPropagation>
+		<stopImmediatePropagation public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>* Stops the propagation of events to sibling listeners (no longer calls any listeners).
+	 *</haxe_doc>
+		</stopImmediatePropagation>
+		<new public="1" set="method">
+			<f a="target:name:data">
+				<d/>
+				<c path="String"/>
+				<d/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* Creates an homogenous object for tracking events so users can know what to expect.
+	 *
+	 * @class
+	 * @namespace PIXI
+	 * @param target {object} The target object that the event is called on
+	 * @param name {String} The string name of the event that was triggered
+	 * @param data {object} Arbitrary event data to pass along</haxe_doc>
+		</new>
+		<meta><m n=":native"><e>"PIXI.EventData"</e></m></meta>
+	</class>
+	<class path="pixi.core.utils.EventTarget" params="" file="pixi/core/utils/EventTarget.hx" extern="1">
+		<listeners public="1" set="method">
+			<f a="eventName">
+				<c path="String"/>
+				<c path="Array"><d/></c>
+			</f>
+			<haxe_doc>* Return a list of assigned event listeners.
+     *
+     * @param eventName {String} The events that should be listed.
+     * @return {Array} An array of listener functions</haxe_doc>
+		</listeners>
+		<emit public="1" set="method">
+			<f a="eventName:?data">
+				<c path="String"/>
+				<c path="pixi.core.utils.EventData"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>* Emit an event to all registered event listeners.
+     *
+     * @alias dispatchEvent
+     * @param eventName {String} The name of the event.
+     * @return {Bool} Indication if we've emitted an event.</haxe_doc>
+		</emit>
+		<dispatchEvent public="1" set="method"><f a="eventName:?data">
+	<c path="String"/>
+	<c path="pixi.core.utils.EventData"/>
+	<x path="Bool"/>
+</f></dispatchEvent>
+		<on public="1" set="method">
+			<f a="eventName:fn">
+				<c path="String"/>
+				<f a="">
+					<c path="pixi.core.utils.EventData"/>
+					<x path="Void"/>
+				</f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* Register a new EventListener for the given event.
+     *
+     * @alias addEventListener
+     * @param eventName {String} Name of the event.
+     * @param callback {Functon} fn Callback function.</haxe_doc>
+		</on>
+		<addEventListener public="1" set="method"><f a="eventName:fn">
+	<c path="String"/>
+	<f a="">
+		<c path="pixi.core.utils.EventData"/>
+		<x path="Void"/>
+	</f>
+	<x path="Void"/>
+</f></addEventListener>
+		<once public="1" set="method">
+			<f a="eventName:fn">
+				<c path="String"/>
+				<f a="">
+					<c path="pixi.core.utils.EventData"/>
+					<x path="Void"/>
+				</f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* Add an EventListener that's only called once.
+     *
+     * @param eventName {String} Name of the event.
+     * @param callback {Function} Callback function.</haxe_doc>
+		</once>
+		<off public="1" set="method">
+			<f a="eventName:fn">
+				<c path="String"/>
+				<f a="">
+					<c path="pixi.core.utils.EventData"/>
+					<x path="Void"/>
+				</f>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* Remove event listeners.
+     *
+     * @alias removeEventListener
+     * @param eventName {String} The event we want to remove.
+     * @param callback {Function} The listener that we need to find.</haxe_doc>
+		</off>
+		<removeEventListener public="1" set="method"><f a="eventName:fn">
+	<c path="String"/>
+	<f a="">
+		<c path="pixi.core.utils.EventData"/>
+		<x path="Void"/>
+	</f>
+	<x path="Void"/>
+</f></removeEventListener>
+		<removeAllListeners public="1" set="method">
+			<f a="eventName">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* Remove all listeners or only the listeners for the specified event.
+     *
+     * @param eventName {string} The event you want to remove all listeners for.</haxe_doc>
+		</removeAllListeners>
+		<new public="1" set="method">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>* Mixins event emitter functionality to an object.
+	 *
+	 * @mixin
+	 * @namespace PIXI
+	 * @example
+	 *      function MyEmitter() {}
+	 *
+	 *      eventTarget.mixin(MyEmitter.prototype);
+	 *
+	 *      var em = new MyEmitter();
+	 *      em.emit('eventName', 'some data', 'some more data', {}, null, ...);</haxe_doc>
+		</new>
+		<meta><m n=":native"><e>"PIXI.eventTarget"</e></m></meta>
+	</class>
 	<class path="pixi.plugins.stats.Stats" params="" file="pixi/plugins/stats/Stats.hx" extern="1">
 		<domElement public="1" set="null">
 			<c path="js.html.DivElement"/>
@@ -14407,43 +15149,89 @@ Documentation for this class was provided by <a href="https://developer.mozilla.
 		</new>
 		<meta><m n=":native"><e>"Stats"</e></m></meta>
 	</class>
-	<class path="samples.Application" params="" file="samples/Application.hx">
+	<class path="samples.v3.Application" params="" file="samples/v3/Application.hx">
 		<pixelRatio public="1" get="null"><x path="Float"/></pixelRatio>
 		<skipFrame public="1" get="null"><x path="Bool"/></skipFrame>
 		<width public="1" get="null"><x path="Float"/></width>
 		<height public="1" get="null"><x path="Float"/></height>
 		<resize public="1" get="null"><x path="Bool"/></resize>
-		<stats public="1" get="null" set="accessor"><x path="Bool"/></stats>
 		<backgroundColor public="1" get="null"><x path="Int"/></backgroundColor>
 		<onUpdate public="1"><f a="">
 	<x path="Float"/>
 	<x path="Void"/>
 </f></onUpdate>
+		<onResize public="1"><f a=""><x path="Void"/></f></onResize>
+		<_stage set="null"><c path="pixi.core.display.Container"/></_stage>
 		<_canvas><c path="js.html.CanvasElement"/></_canvas>
+		<_renderer><d/></_renderer>
 		<_stats><c path="pixi.plugins.stats.Stats"/></_stats>
 		<_lastTime><c path="Date"/></_lastTime>
+		<_currentTime><c path="Date"/></_currentTime>
+		<_elapsedTime><x path="Float"/></_elapsedTime>
 		<_skipFrame><x path="Bool"/></_skipFrame>
-		<_setDefaultValues set="method" line="96"><f a=""><x path="Void"/></f></_setDefaultValues>
-		<start public="1" set="method" line="106"><f a=""><x path="Void"/></f></start>
-		<set_stats set="method" line="158"><f a="val">
+		<_setDefaultValues set="method" line="86"><f a=""><x path="Void"/></f></_setDefaultValues>
+		<start public="1" set="method" line="101"><f a="?stats" v="false">
 	<x path="Bool"/>
-	<x path="Bool"/>
-</f></set_stats>
-		<new public="1" set="method" line="91"><f a=""><x path="Void"/></f></new>
+	<x path="Void"/>
+</f></start>
+		<_onWindowResize set="method" line="125"><f a="event">
+	<c path="js.html.Event"/>
+	<x path="Void"/>
+</f></_onWindowResize>
+		<_onRequestAnimationFrame set="method" line="134"><f a=""><x path="Void"/></f></_onRequestAnimationFrame>
+		<_calculateElapsedTime set="method" line="146"><f a=""><x path="Void"/></f></_calculateElapsedTime>
+		<addStats set="method" line="152"><f a=""><x path="Void"/></f></addStats>
+		<new public="1" set="method" line="81"><f a=""><x path="Void"/></f></new>
 		<meta><m n=":keep"/></meta>
 	</class>
-	<class path="samples.basics.Main" params="" file="samples/basics/Main.hx">
-		<extends path="samples.Application"/>
-		<main set="method" line="32" static="1">
+	<class path="samples.v3.bunnymark.Bunny" params="" file="samples/v3/bunnymark/Bunny.hx">
+		<extends path="pixi.core.sprites.Sprite"/>
+		<speedX public="1"><x path="Float"/></speedX>
+		<speedY public="1"><x path="Float"/></speedY>
+		<new public="1" set="method" line="13"><f a="texture">
+	<c path="pixi.core.textures.Texture"/>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":keep"/></meta>
+	</class>
+	<class path="samples.v3.bunnymark.Main" params="" file="samples/v3/bunnymark/Main.hx">
+		<extends path="samples.v3.Application"/>
+		<main set="method" line="178" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 		</main>
-		<_init set="method" line="18"><f a=""><x path="Void"/></f></_init>
-		<_onUpdate set="method" line="28"><f a="elapsedTime">
+		<wabbitTexture><c path="pixi.core.textures.Texture"/></wabbitTexture>
+		<bunnys><c path="Array"><c path="samples.v3.bunnymark.Bunny"/></c></bunnys>
+		<bunnyTextures><c path="Array"><c path="pixi.core.textures.Texture"/></c></bunnyTextures>
+		<gravity><x path="Float"/></gravity>
+		<maxX><x path="Float"/></maxX>
+		<minX><x path="Float"/></minX>
+		<maxY><x path="Float"/></maxY>
+		<minY><x path="Float"/></minY>
+		<startBunnyCount><x path="Int"/></startBunnyCount>
+		<isAdding><x path="Bool"/></isAdding>
+		<count><x path="Int"/></count>
+		<container><c path="pixi.core.particles.ParticleContainer"/></container>
+		<amount><x path="Int"/></amount>
+		<bunnyType><x path="Int"/></bunnyType>
+		<currentTexture><c path="pixi.core.textures.Texture"/></currentTexture>
+		<counter><c path="js.html.DivElement"/></counter>
+		<_init set="method" line="38"><f a=""><x path="Void"/></f></_init>
+		<_setup set="method" line="49"><f a=""><x path="Void"/></f></_setup>
+		<onTouchStart set="method" line="104"><f a="event">
+	<unknown/>
+	<x path="Void"/>
+</f></onTouchStart>
+		<onTouchEnd set="method" line="108"><f a="event">
+	<unknown/>
+	<x path="Void"/>
+</f></onTouchEnd>
+		<_onUpdate set="method" line="116"><f a="elapsedTime">
 	<x path="Float"/>
 	<x path="Void"/>
 </f></_onUpdate>
-		<new public="1" set="method" line="7"><f a=""><x path="Void"/></f></new>
+		<_onResize set="method" line="170"><f a=""><x path="Void"/></f></_onResize>
+		<new public="1" set="method" line="33"><f a=""><x path="Void"/></f></new>
 		<meta><m n=":keep"/></meta>
 	</class>
 </haxe>
