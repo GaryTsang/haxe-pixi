@@ -27,6 +27,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-haxe");
     grunt.loadNpmTasks("grunt-zip");
     grunt.loadNpmTasks("grunt-exec");
-    grunt.registerTask("default", ["haxe", "zip", "exec"]);
-    
+    grunt.registerTask("default", ["haxe"]);
+
 };
